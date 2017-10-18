@@ -3,6 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p> User name : {{myName}} </p>
+         <button @click="resetName">Reset Name</button>
     </div>
 </template>
 
@@ -14,7 +15,14 @@ props: {
                 required: true
             }
 
-}
+},
+methods: {
+
+            resetName() {
+                this.myName = 'sandeep';
+                this.$emit('nameWasReset', this.myName);
+            }
+        }
 }
 </script>
 

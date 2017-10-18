@@ -8,7 +8,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :myName = 'names'></app-user-detail>
+                <app-user-detail :myName = 'names'  @nameWasReset="names = $event"></app-user-detail>
                 <!-- just by binding name ' :name ' we pass the data from parent component to the child components -->
             </div>
             <div class="col-xs-12 col-sm-6">
