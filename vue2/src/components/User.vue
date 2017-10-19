@@ -8,11 +8,14 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :myName = 'names'  @nameWasReset="names = $event"></app-user-detail>
+                <app-user-detail :myName = 'names'  @nameWasReset="names = $event"
+                 :resetFn="resetName"
+                 :userAge="age"></app-user-detail>
                 <!-- just by binding name ' :name ' we pass the data from parent component to the child components -->
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit :userAge= "age"
+                @agewasedited = "age = $event" ></app-user-edit>
             </div>
         </div>
     </div>
@@ -25,13 +28,17 @@
     export default {
     data: function() {
     return {
-    names: 'sandeep'
+    names: 'sandeep',
+    age : 27
     };
     },
     methods: {
     changename() {
     this.names = 'akshar'
-    }
+    },
+     resetName() {
+      this.names = 'sandeep';
+                }
     },
         components: {
             appUserDetail: UserDetail,

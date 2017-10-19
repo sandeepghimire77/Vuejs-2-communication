@@ -4,6 +4,9 @@
         <p>Many Details</p>
         <p> User name : {{myName}} </p>
          <button @click="resetName">Reset Name</button>
+
+         <button @click="resetFn()">Reset Name</button>
+         <p> Userage : {{userAge}} </p>
     </div>
 </template>
 
@@ -13,7 +16,9 @@ props: {
             myName: {
                 type: String,
                 required: true
-            }
+            },
+            resetFn: Function,
+            userAge: Number
 
 },
 methods: {
